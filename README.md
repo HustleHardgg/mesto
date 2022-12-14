@@ -7,4 +7,4 @@
 # GIT
 # JavaScript
 
-https://hustlehardgg.github.io/russian-travel-main/
+https://hustlehardgg.github.io/mesto/
