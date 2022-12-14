@@ -1,0 +1,17 @@
+.popup__save-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+@media screen and (max-width: 767px) {
+    .popup__save-text {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
