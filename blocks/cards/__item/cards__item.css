@@ -1,4 +1,5 @@
 .cards__item {
     background-color: #FFFFFF;
     border-radius: 10px;
+    max-height: 361px;
 }

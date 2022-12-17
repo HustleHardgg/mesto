@@ -1,9 +1,0 @@
-.cards__like {
-    display: flex;
-    align-items: center;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.cards__like:hover {
-    opacity: 0.5;
-}
