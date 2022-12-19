@@ -11,9 +11,8 @@ const mainForm = document.form;
 
 editButton.addEventListener('click', popupOpen);
 function popupOpen() {
-    profileTitle.value=nameTitle.textContent;
-    profilesubtitle.value=about.textContent;
-
+    nameTitle.value = profileTitle.textContent;
+    about.value = profilesubtitle.textContent;
     popup.classList.add('popup_opened');
 }
 
@@ -27,8 +26,8 @@ function popupClose() {
 
 function handleFormSubmit (event) {
     event.preventDefault();   
-    profileTitle.textContent=nameTitle.value;
-    profilesubtitle.textContent=about.value;
+    profileTitle.textContent = nameTitle.value;
+    profilesubtitle.textContent = about.value;
     popupClose()
 }
 mainForm.addEventListener('submit', handleFormSubmit);
