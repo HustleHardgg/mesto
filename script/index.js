@@ -34,8 +34,8 @@ const imageOpentitle = document.querySelector('.popup-image__title')
 
 const formCreate = document.querySelector('.popup-addimage');
 const createButton = document.querySelector('.popup__create-button');
-const nameAddinput = document.querySelector('.popup__input_name_namePlace');
-const linkAddinput = document.querySelector('.popup__input_name_link');
+const nameAddinput = document.querySelector('.popup__input_place');
+const linkAddinput = document.querySelector('.popup__input_place-link');
 
 const editButton = document.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
