@@ -1,4 +1,4 @@
-.cards__like-button {
+.cards__like-button{
     transition: opacity 0.5s ease-in-out;
     border: none;
     background-image: url(../../../image/like.svg);
@@ -12,4 +12,9 @@
 
 .cards__like-button:hover {
     opacity: 0.5;
+}
+
+
+.cards__like-button_active{
+    background-image: url(../../../image/Union.png);
 }

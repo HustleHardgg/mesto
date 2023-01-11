@@ -1,4 +1,4 @@
-.popup {
+.popup-addimage {
     display: flex;
     box-sizing: border-box;
     position: fixed;
@@ -10,6 +10,6 @@
     justify-content: center;
     padding-top: 195px;
     visibility: hidden;
-    transition: opacity 1s, visibility  1s;
+    transition: opacity 0.5s, visibility  0.5s;
     opacity: 0;
 }

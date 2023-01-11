@@ -1,7 +1,7 @@
-.cards__item {
+.cards__content{
     background-color: #FFFFFF;
     border-radius: 10px;
     height: 361px;
     width: 282px;
-     
+    position: relative;
 }
