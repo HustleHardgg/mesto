@@ -33,19 +33,19 @@ const imageOpen = document.querySelector('.popup-image__open');
 const imageOpentitle = document.querySelector('.popup-image__title')
 
 const formCreate = document.querySelector('.popup-addimage');
-const createButton = document.querySelector('.popup__create-button');
+const buttonCreate = document.querySelector('.popup__create-button');
 const nameAddinput = document.querySelector('.popup-addimage__input_place');
 const linkAddinput = document.querySelector('.popup-addimage__input_place-link');
 
-const editButton = document.querySelector('.profile__edit-button');
+const buttonEdit = document.querySelector('.profile__edit-button');
 const popupEditprofile = document.querySelector('.popup');
-const closeButtonprofile = document.querySelector('.popup__close-button');
+const buttonCloseprofile = document.querySelector('.popup__close-button');
 
 const profileTitle = document.querySelector('.profile__title');
 const profilesubtitle = document.querySelector('.profile__subtitle');
 const nameTitle = document.querySelector('.popup__input_name_title');
 const about = document.querySelector('.popup__input_name_subtitle');
-const save = document.querySelector('.popup__save-button');
+const buttonSave = document.querySelector('.popup__save-button');
 const mainForm = document.querySelector('.popup');
 const popupAdd = document.querySelector('.popup-addimage');
 const addButton = document.querySelector('.profile__add-button')
@@ -72,27 +72,24 @@ function createCard({name , link}) {
     cardLikebutton.classList.toggle('cards__like-button_active');
   }
 
-  //const imageOpen = card.querySelector('.Image-open')
+  
  
   
   const photoOpen = () => {
-    popupImage.classList.add('popup_opened')
+    openPopup(popupImage);
+    
     imageOpen.src = link;
     imageOpentitle.textContent = (cardTitle.textContent);
     
-    popupImageclosebutton.addEventListener('click', photoClose);
   }
-  const photoClose = () => {
-    popupImage.classList.remove('popup_opened')
-    
-  }
- 
+   
   cardLink.addEventListener('click' , photoOpen)
   cardLikebutton.addEventListener('click' , likeCard );
   deleteButton.addEventListener('click', deleteCard);
   
   return card;
 }
+popupImageclosebutton.addEventListener('click', () => { closePopup(popupImage)});
 
 function renderCards() {
   initialCards.forEach(item =>{
@@ -105,59 +102,52 @@ function  handleAddFormSubmit(event) {
   event.preventDefault();
   const newCard = createCard({
     name: nameAddinput.value,
-    link: linkAddinput.value
+    link: linkAddinput.value,
+    
   }) 
   
   cardTemplate.prepend(newCard);
-  
+  closePopup(popupAdd);
 }
 
 formCreate.addEventListener('submit', handleAddFormSubmit);
 
 renderCards();
 
-editButton.addEventListener('click',  () => { openPopup(popupEditprofile)} );
-//function popupOpen() {
-//    nameTitle.value = profileTitle.textContent;
-  //  about.value = profilesubtitle.textContent;
-    //openPopup(popupEditprofile);
-//}
+buttonEdit.addEventListener('click', openPropfilePopup );
 
-closeButtonprofile.addEventListener('click', () => { closePopup(popupEditprofile)});
+function openPropfilePopup() {
+  nameTitle.value = profileTitle.textContent;
+  about.value = profilesubtitle.textContent;
+  openPopup(popupEditprofile);
+}
 
-//function popupClose() {
- // closePopup(popupEditprofile);
-  //popupEditprofile.classList.remove('popup_opened');
-//}
+buttonCloseprofile.addEventListener('click', () => { closePopup(popupEditprofile)});
 
 
 
 
-function handleFormSubmit (event) {
+
+function handleFormSubmitPropfilePopup (event) {
     event.preventDefault();   
     profileTitle.textContent = nameTitle.value;
     profilesubtitle.textContent = about.value;
-    popupClose()
+    closePopup(popupEditprofile)
 }
-mainForm.addEventListener('submit', handleFormSubmit);
+mainForm.addEventListener('submit', handleFormSubmitPropfilePopup);
 
 addButton.addEventListener('click', () => { openPopup(popupAdd) });
 
-//function popupAddopen() {
-//    popupAdd.classList.add('popup_opened')
-//};
+
 
 popupAddclosebutton.addEventListener ('click', () => {closePopup(popupAdd) });
 
-//function popupAddclose() {
- //   popupAdd.classList.remove('popup_opened')
-//};
+
 
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  nameTitle.value = profileTitle.textContent;
-  about.value = profilesubtitle.textContent;
+  
 } 
 
 function closePopup(popup) {
