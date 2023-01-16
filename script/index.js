@@ -48,6 +48,7 @@ const about = document.querySelector('.popup__input_name_subtitle');
 const buttonSave = document.querySelector('.popup__save-button');
 const mainForm = document.querySelector('.popup');
 const popupAdd = document.querySelector('.popup-addimage');
+const popupAddform = document.querySelector('.popup-addimage__form')
 const addButton = document.querySelector('.profile__add-button')
 const popupAddclosebutton = document.querySelector('.popup-addimage__close-button')
 
@@ -77,7 +78,7 @@ function createCard({name , link}) {
   
   const photoOpen = () => {
     openPopup(popupImage);
-    
+    imageOpen.alt = (cardTitle.textContent);
     imageOpen.src = link;
     imageOpentitle.textContent = (cardTitle.textContent);
     
@@ -108,6 +109,7 @@ function  handleAddFormSubmit(event) {
   
   cardTemplate.prepend(newCard);
   closePopup(popupAdd);
+  popupAddform.reset();
 }
 
 formCreate.addEventListener('submit', handleAddFormSubmit);
