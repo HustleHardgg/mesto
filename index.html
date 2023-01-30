@@ -29,7 +29,7 @@
         <section class="cards">
             <template class="cards__item">
                 <div class="cards__content">
-                    <img class="cards__image"  alt="картинка">
+                    <img class="cards__image" alt="картинка">
                     <button class="image-trash"></button>
                     <div class="cards__text">
                         <h3 class="cards__title"></h3>
@@ -42,16 +42,19 @@
             <div class="popup__container">
                 <button type="button" class="popup__close-button"></button>
                 <h2 class="popup__header">Редактировать профиль</h2>
-                <form name="form" class="popup__form" novalidate>
-                
-                    <input name="textName" id="form__name" type="text" class="popup__input popup__input_name_title" placeholder="Имя" minlength="2" maxlength="40" required >
-                    <span class="form__input-error form__name-error"></span>
+                <form class="popup__form" novalidate>
 
-                    <input name="textAbout" type="text" id="form__about" class="popup__input popup__input_name_subtitle" placeholder="О себе" minlength="2" maxlength="200" required>
-                    <span class = "form__input-error form__about-error"></span>
-                
+                    <input name="textName" id="popup__name" type="text" class="popup__input popup__input_name_title"
+                        placeholder="Имя" minlength="2" maxlength="40" required>
+                    <span class="popup__name-error"></span>
+
+                    <input name="textAbout" type="text" id="popup__about"
+                        class="popup__input popup__input_name_subtitle" placeholder="О себе" minlength="2"
+                        maxlength="200" required>
+                    <span class="popup__about-error"></span>
+
                     <button type="submit" class="popup__save-button">Сохранить</button>
-                
+
                 </form>
             </div>
         </div>
@@ -59,14 +62,17 @@
             <div class="popup-addimage__container">
                 <button type="button" class="popup-addimage__close-button"></button>
                 <h2 class="popup-addimage__header">Новое место</h2>
-                <form name="add-Card" class="popup-addimage__form" novalidate>
-                    <input name="Name" id="place__name" type="text" class="popup__input popup-addimage__input_place" placeholder="Название" minlength="2" maxlength="30" required>
-                    <span class="form__input-error place__name-error"></span>
 
-                    <input name="link" id="place__link" type="url" class="popup__input popup-addimage__input_place-link" placeholder="Ссылка на картинку" required>
-                    <span class = "form__input-error place__link-error"></span>
+                <form class="popup-addimage__form" novalidate>
+                    <input id="popup-addimage__place-name" type="text" class="popup-addimage__input popup-addimage__input_place"
+                        placeholder="Название" minlength="2" maxlength="30" required>
+                    <span class="popup-addimage__place-name-error"></span>
 
-                    <button type="submit" class="popup__save-button">Создать</button>
+                    <input id="popup-addimage__place-link" type="url"
+                        class="popup-addimage__input popup-addimage__input_place-link" placeholder="Ссылка на картинку" required>
+                    <span class="popup-addimage__place-link-error"></span>
+
+                    <button type="submit" class="popup-addimage__save-button">Создать</button>
                 </form>
             </div>
         </div>

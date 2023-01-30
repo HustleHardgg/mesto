@@ -1,8 +1,9 @@
-.popup-addimage__place-link-error {
+.popup__name-error {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
     color: #FF0000;
+    display: none;
 }
