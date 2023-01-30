@@ -12,8 +12,8 @@
     outline: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2); 
 }
-@media screen and (max-width: 767px) {
+/*@media screen and (max-width: 767px) {
     .popup-addimage__input_place {
         margin-top: 75px;
     }
-}
+}*/

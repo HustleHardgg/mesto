@@ -34,7 +34,7 @@
 
 /* <!-- PopupImage--> */
 
-@import url(../blocks/popup/__container/popup-addImage.css);
+@import url(../blocks/popup/__container/popup-addimage.css);
 @import url(../blocks/cards/__image/image-trash.css);
 @import url(../blocks/cards/__content/cards__content.css);
 @import url(../blocks/popup-addimage/popup-addimage.css);
@@ -61,7 +61,10 @@
 
 @import url(../blocks/popup/__name-error/popup__about-error.css);
 @import url(../blocks/popup/__name-error/popup__name-error.css);
-@import url(../blocks/popup/__name-error/_active/popup__about-error_active.css);
-@import url(../blocks/popup/__name-error/_active/popup__name-error_active.css);
+
 @import url(../blocks/popup-addimage/__save/popup-addimage__save-button.css);
 @import url(../blocks/popup-addimage/__save/_inactive/popup-addimage__save-button_inactive.css);
+@import url(../blocks/popup-addimage/__place/popup-addimage__place-link-error.css);
+@import url(../blocks/popup-addimage/__place/popup-addimage__place-name-error.css);
+@import url(../blocks/popup/__name-error/_active/popup__about-error_active.css);
+@import url(../blocks/popup/__name-error/_active/popup__name-error_active.css);

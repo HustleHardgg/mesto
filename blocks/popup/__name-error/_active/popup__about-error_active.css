@@ -1,3 +1,6 @@
 .popup__about-error_active {
     display: block;
 }
+.popup-addimage__place-link-error_active{
+    display: block;
+}

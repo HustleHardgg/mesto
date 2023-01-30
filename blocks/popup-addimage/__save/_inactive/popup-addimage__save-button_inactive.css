@@ -15,3 +15,12 @@
     -ms-user-select: none;
     user-select: none;
 }
+
+@media screen and (max-width: 767px) {
+    .popup-addimage__save-button_inactive {
+        width: 238px;
+        height: 46px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
