@@ -1,64 +1,69 @@
-
+const config = {
+  formElement: 'form',
+  inputElement: 'input',
+  buttonElement: 'button',
+  inactiveButtonClass: 'popup__save-button_inactive',
+  inputErrorClass: 'form__input_type_error',
+  errorElement: 'popup__name-error_active'
+};
 
 
 // Функция, которая добавляет класс с ошибкой
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (formElement, inputElement, errorMessage, config ) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   //console.log(errorElement)
-  inputElement.classList.add('form__input_type_error');
+  inputElement.classList.add(config.inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add('popup__name-error_active');
+  errorElement.classList.add(config.errorElement);
 };
 
 // Функция, которая удаляет класс с ошибкой
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement, config ) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('form__input_type_error');
-  errorElement.classList.remove('popup__name-error_active');
+  inputElement.classList.remove(config.inputErrorClass);
+  errorElement.classList.remove(config.errorElement);
   errorElement.textContent = '';
 };
 
 // Функция, которая проверяет валидность поля
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, config) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(formElement, inputElement, inputElement.validationMessage, config );
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, config);
   }
 
 };
 
 
-function setEventListeners(formElement) {
-  const inputList = Array.from(formElement.querySelectorAll('input'));
+function setEventListeners(formElement, config) {
+  const inputList = Array.from(formElement.querySelectorAll(config.inputElement));
   
-  const buttonElement = formElement.querySelector('button');
-  toggleButtonState(inputList, buttonElement);
+  const buttonElement = formElement.querySelector(config.buttonElement);
+  toggleButtonState(inputList, buttonElement, config);
  
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
-      checkInputValidity(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
+      checkInputValidity(formElement, inputElement, config);
+      toggleButtonState(inputList, buttonElement, config);
 
     });
   });
 };
 
-function enableValidation() {
-  const formList = Array.from(document.querySelectorAll('form'));
+function enableValidation(config) {
+  const formList = Array.from(document.querySelectorAll(config.formElement));
 
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
-
     });
 
-    setEventListeners(formElement);
-    console.log(formList)
+    setEventListeners(formElement, config);
   });
 }
-enableValidation();
+
 
 function hasInvalidInput(inputList) {
   return inputList.some((inputElement) => {
@@ -67,16 +72,16 @@ function hasInvalidInput(inputList) {
 }
 
 
-function toggleButtonState(inputList, buttonElement) {
+function toggleButtonState(inputList, buttonElement, config ) {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('popup__save-button_inactive');
-    buttonElement.classList.add('popup-addimage__save-button_inactive');
+    buttonElement.classList.add(config.inactiveButtonClass);
+    
     buttonElement.disabled = true;
   } else {
-    buttonElement.classList.remove('popup__save-button_inactive');
-    buttonElement.classList.remove('popup-addimage__save-button_inactive');
+    buttonElement.classList.remove(config.inactiveButtonClass);
+    
     buttonElement.disabled = false;
   }
 
 }
-enableValidation();
+enableValidation(config);

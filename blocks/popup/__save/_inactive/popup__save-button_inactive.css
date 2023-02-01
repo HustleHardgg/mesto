@@ -1,6 +1,9 @@
+
+
+
+
 .popup__save-button_inactive {
     margin-top: 35px;
-    width: 358px;
     height: 50.15px;
     left: 107px;
     top: 293px;
@@ -14,5 +17,16 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
+};
+
+@media screen and (max-width: 767px) {
+    .popup__save-button_inactive {
+        width: 238px;
+        height: 46px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+};
+
+
 

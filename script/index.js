@@ -48,13 +48,14 @@ const about = document.querySelector('.popup__input_name_subtitle');
 const buttonSave = document.querySelector('.popup__save-button');
 const mainForm = document.querySelector('.popup');
 const popupAdd = document.querySelector('.popup-addimage');
-const popupAddform = document.querySelector('.popup-addimage__form')
-const addButton = document.querySelector('.profile__add-button')
-const popupAddclosebutton = document.querySelector('.popup-addimage__close-button')
+const popupAddform = document.querySelector('.popup-addimage__form');
+const buttonAdd = document.querySelector('.profile__add-button');
+const popupAddclosebutton = document.querySelector('.popup-addimage__close-button');
 
-const popupImage = document.querySelector('.popup-image')
-const popupImageclosebutton = document.querySelector('.popup-image__close-button')
+const popupImage = document.querySelector('.popup-image');
+const popupImageclosebutton = document.querySelector('.popup-image__close-button');
 
+const ESC_CODE = 'Escape';
 
 
 function createCard({ name, link }) {
@@ -140,7 +141,7 @@ function handleFormSubmitPropfilePopup(event) {
 }
 mainForm.addEventListener('submit', handleFormSubmitPropfilePopup);
 
-addButton.addEventListener('click', () => { openPopup(popupAdd) });
+buttonAdd.addEventListener('click', () => { openPopup(popupAdd) });
 
 
 
@@ -151,41 +152,55 @@ popupAddclosebutton.addEventListener('click', () => { closePopup(popupAdd) });
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown',  closeByEsc);
+  popup.addEventListener('click', closePopupOverlay);
 
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown',  closeByEsc);
+  popup.removeEventListener('click', closePopupOverlay);
 }
 
-popupEditprofile.addEventListener('click', (event) => {
-  if (event.target === event.currentTarget){
-    closePopup(popupEditprofile);
+//popupEditprofile.addEventListener('click', (event) => {
+ // if (event.target === event.currentTarget) {
+ //   closePopup(popupEditprofile);
+//  }
+//});
+
+//popupAdd.addEventListener('click', (event) => {
+//  if (event.target === event.currentTarget) {
+//    closePopup(popupAdd);
+//  }
+//});
+
+
+//popupImage.addEventListener('click', (event) => {
+ // if (event.target === event.currentTarget) {
+ //   closePopup(popupImage);
+//  }
+//});
+
+const closePopupOverlay = function(e) {
+  if (e.target === e.currentTarget) {
+    closePopup(e.target);
   }
-});
+};
 
-popupAdd.addEventListener('click', (event) => {
-  if (event.target === event.currentTarget){
-    closePopup(popupAdd);
+//document.addEventListener('keyup', addEscFunction);
+
+//function addEscFunction(event) {
+ // event.preventDefault();
+ // if (event.key === 'Escape' || event.keyCode === 27) {
+ //   closePopup(popupEditprofile);
+ //   closePopup(popupAdd);
+ //   closePopup(popupImage);
+  //}
+//}
+function closeByEsc(evt) {
+  if (evt.key === ESC_CODE) {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup); 
   }
-});
-
-
-popupImage.addEventListener('click', (event) => {
-  if (event.target === event.currentTarget){
-    closePopup(popupImage);
-  }
-});
-
-
-
-document.addEventListener('keyup', addEscFunction);
-
-function addEscFunction(event) {
-  event.preventDefault();
-  if (event.key === 'Escape' || event.keyCode === 27) {
-    closePopup(popupEditprofile);
-    closePopup(popupAdd);
-    closePopup(popupImage);
-  }
-}
+} 
