@@ -1,4 +1,5 @@
-import cards from "./card.js";
+import Card from "./card.js";
+
 //import FormValidator from "./validate";
 const initialCards = [
   {
@@ -27,6 +28,16 @@ const initialCards = [
   }
 ];
 
+const configValid = {
+  formElement: 'form',
+  inputElement: 'input',
+  buttonElement: 'button',
+  inactiveButtonClass: 'popup__save-button_inactive',
+  inputErrorClass: 'form__input_type_error',
+  errorElement: 'popup__name-error_active'
+};
+
+
 const config = {
   selectorCards: '.cards',
   selectorTemplate: '.cards__item',
@@ -43,7 +54,7 @@ const cardList = document.querySelector(config.selectorCards);
 //popupContainer.append(form.getElement());
 
 for (const item of initialCards) {
-  const card = new cards(config.selectorTemplate, item);
+  const card = new Card(config.selectorTemplate, item, photoOpen);
   const element = card._getElement();
   cardList.append(element);
 }
@@ -117,10 +128,13 @@ const ESC_CODE = 'Escape';
 const card = cardsContainer.cloneNode(true);
 //
 const cardLink = document.querySelector('.cards__image');
+
+
 //cardLink.src = link;
  const cardTitle = card.querySelector('.cards__title');
- cardTitle.textContent = name;
-//cardLink.alt = name;
+ //cardTitle.textContent = name;
+ // cardLink.alt = name;
+//};
 //  const deleteButton = card.querySelector('.image-trash');
 //  const deleteCard = () => {
 //    card.remove();
@@ -129,20 +143,22 @@ const cardLink = document.querySelector('.cards__image');
 //
 //  const likeCard = () => {
 //   cardLikebutton.classList.toggle('cards__like-button_active');
-// }
+ 
 
 
 
 
-const photoOpen = () => {
+function photoOpen (name, link) {
+  imageOpen.alt = name;
+  imageOpen.src = link;
+  imageOpentitle.textContent = name;
   openPopup(popupImage);
-  imageOpen.alt = (cardTitle.textContent);
- imageOpen.src = link;
-  imageOpentitle.textContent = (cardTitle.textContent);
-
 }
 
-cardLink.addEventListener('click', photoOpen)
+
+
+//cardLink.addEventListener('click', photoOpen)
+//console.log(cardLink);
 //cardLikebutton.addEventListener('click', likeCard);
 //deleteButton.addEventListener('click', deleteCard);
 
@@ -260,3 +276,5 @@ function closeByEsc(evt) {
     closePopup(openedPopup);
   }
 } 
+export {photoOpen};
+export {configValid};
