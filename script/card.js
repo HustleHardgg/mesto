@@ -12,10 +12,13 @@ class Card {
         //console.log(this._deleteCard)
     }
     _getElementFromTemplate() {
-        return document.querySelector(this._template)
+        const cardElement = document
+        .querySelector(this._template)
             .content
             .querySelector('.cards__content')
             .cloneNode(true);
+            console.log(cardElement)
+            return cardElement
     }
     
 
@@ -38,9 +41,11 @@ class Card {
 
     getElement() {
         this._element = this._getElementFromTemplate();
+
         this._element.querySelector('.cards__image').alt = this._name;
         this._element.querySelector('.cards__title').textContent = this._name;
         this._element.querySelector('.cards__image').src = this._link;
+
         this._addEventListeners();
          
         return this._element;

@@ -94,22 +94,6 @@ for (const item of initialCards) {
   cardList.append(element);
 }
 
-//Функция отправки формы добавления карточки 
-//function addformcard (event) {
-// event.preventDefault();
-//  cardsContainer.prepend(cardElement);
-//  closePopup(popupAdd);
-//  nameAddinput.value = "";
-//  linkAddinput.value = "";  
-//};
-
-//function createCard() {
-//  const newCard = new Card(cardsContainer, {name:nameAddinput.value, link:linkAddinput.value}, addformcard);
-//  const cardElement = newCard.getElement();
-//  return cardElement;
-//}
-
-
 //Открытие картинки
 function photoOpen(name, link) {
   imageOpen.alt = name;
@@ -138,7 +122,7 @@ function handleFormSubmitPropfilePopup(event) {
 mainForm.addEventListener('submit', handleFormSubmitPropfilePopup);
 buttonAdd.addEventListener('click', () => { openPopup(popupAdd) });
 popupAddclosebutton.addEventListener('click', () => { closePopup(popupAdd) });
-popupAddform.addEventListener('submit', createCard)
+popupAddform.addEventListener('submit', handlePopupAddCard)
 
 
 
@@ -186,11 +170,6 @@ function closeByEsc(evt) {
   }
 }
 
-
-
-
-
-
 const ValidatorAddCard = new FormValidator(popupAddform, data);
 ValidatorAddCard.enableValidation();
 
@@ -198,47 +177,15 @@ const ValidatorProfile = new FormValidator(popupProfile, data);
 ValidatorProfile.enableValidation();
 
 
+// функция добавления новых карточек
 
-//function createCard(name, link) {
-//   const card = new Card(config.selectorCards, name , link)
-//   const cardElement = card.getElement();
-//   return cardElement
-//}
-
-//const addCards = (name, link) => {
-//  const card = createCard(name, link);
-//  cardsContainer.prepend(card);
-//}
-
-//const renderCard = (initialCards) => {
-//  initialCards.forEach((item) => {
-//    addCards(item.name, item.link);
-//  })
-//}
-
-//renderCard(initialCards);
-
-
-const renderIntialCards = (array) => {
-  array.forEach((item) => {
-    addCard(item.name , item.link);    
-  });
-}
-function createCard(name, link) {
-  const card = new Card('.cards__item', {name, link});
-  const cardElement = card.getElement();
-  return cardElement;
-}
-const addCard = (name , link) => {
-  const card = createCard(name, link);
-  cardsContainer.prepend(card)
-};
-
-popupAddform.addEventListener ('submit', (evt)=>{
+function handlePopupAddCard(evt) {
   evt.preventDefault();
-  addCard(nameAddinput.value, linkAddinput.value)
-  closePopup(popupAdd);
-  //formCreate.reset();
-});
+  const newObject = {
+    name: nameAddinput.value,
+    link: linkAddinput.value,
+  };
 
-renderIntialCards(initialCards);
+  cardList.prepend(new Card(config.selectorTemplate, newObject, photoOpen).getElement());
+  closePopup(popupAdd);
+}
