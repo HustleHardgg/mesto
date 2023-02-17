@@ -1,43 +1,49 @@
 
 
-
 class FormValidator {
-  constructor(configValid, formElement){
-    this._config = configValid;
-    this._formElement = formElement;
-    this._buttonElement = formElement.querySelector(config.buttonElement);
-    this._inputElement = Array.from(formElement.querySelectorAll(config.inputElement))
-  }
-  // Функция, которая проверяет валидность поля
-  _checkInputValidity(inputElement) {
-    if (!inputElement.validity.valid) {
-      this._showInputError(inputElement);
-    } else {
-      this._hideInputError(inputElement);
-    }
-};
+  constructor(formElement, data){
+    this._data = data;
+    //console.log(data);
+    this._form = formElement;
+    this._inactiveButtonClass = data.inactiveButtonClass;
+    this._buttonElement = formElement.querySelector(data.buttonElement);
+    this._inputList = Array.from(formElement.querySelectorAll(data.inputElement));
+}
+  
 // Функция, которая добавляет класс с ошибкой
 _showInputError(inputElement) {
-  const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add(this._config.inputErrorClass);
-  errorElement.classList.add(this._config.errorElement);
+  const errorElement = this._form.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add(this._data.inputErrorClass);
+  errorElement.classList.add(this._data.errorElement);
   errorElement.textContent = inputElement.validationMessage;
 }
 // Функция, которая удаляет класс с ошибкой
 _hideInputError(inputElement) {
-  const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove(this._config.inputErrorClass);
-  errorElement.classList.remove(this._config.errorElement);
+  const errorElement = this._form.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove(this._data.inputErrorClass);
+  errorElement.classList.remove(this._data.errorElement);
   errorElement.textContent = '';
 }
 
-_hasInvalidInput = () => this._inputList.some((inputElement) => !!inputElement.validity.valid);
+// Функция, которая проверяет валидность поля
+_checkInputValidity(inputElement) {
+  if (!inputElement.validity.valid) {
+    this._showInputError(inputElement);
+  } else {
+    this._hideInputError(inputElement);
+  }
+};
+
+
+_hasInvalidInput = () => this._inputList.some((inputElement) => !inputElement.validity.valid);
 
 _toggleButtonState = () => {
   if (this._hasInvalidInput()) {
+    this._buttonElement.classList.add(this._inactiveButtonClass);
     this._buttonElement.disabled = true;
     
   } else {
+    this._buttonElement.classList.remove(this._inactiveButtonClass);
     this._buttonElement.disabled = false;
   }
 }

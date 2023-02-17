@@ -36,14 +36,13 @@ class Card {
         evt.target.classList.toggle('cards__like-button_active');
     }
 
-    _getElement() {
+    getElement() {
         this._element = this._getElementFromTemplate();
         this._element.querySelector('.cards__image').alt = this._name;
         this._element.querySelector('.cards__title').textContent = this._name;
         this._element.querySelector('.cards__image').src = this._link;
         this._addEventListeners();
-        
-        
+         
         return this._element;
         
     }
