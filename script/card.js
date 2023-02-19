@@ -6,10 +6,10 @@ class Card {
         this._link = card.link;
         this._deleteCard = this._deleteCard.bind(this);
         this._likeCard = this._likeCard.bind(this);
-        
+        //this._element.querySelector('.cards__image') = this._cardimage;
+        console.log(this._cardimage);
         this._photoOpen = photoOpen;
-        //console.log(this._photoOpen)
-        //console.log(this._deleteCard)
+        
     }
     _getElementFromTemplate() {
         const cardElement = document
@@ -17,8 +17,9 @@ class Card {
             .content
             .querySelector('.cards__content')
             .cloneNode(true);
-            console.log(cardElement)
+            
             return cardElement
+    
     }
     
 
@@ -26,12 +27,11 @@ class Card {
     _addEventListeners() {
         this._element.querySelector('.image-trash').addEventListener('click', this._deleteCard );
         this._element.querySelector('.cards__like-button').addEventListener('click', this._likeCard);
-        this._element.querySelector('.cards__image').addEventListener('click', () => this._photoOpen(this._name, this._link) );
+        this._cardimage.addEventListener('click', () => this._photoOpen(this._name, this._link) );
     }
     _deleteCard() {
-        console.log(this._element);
-        console.log(this._template);
         this._element.remove();
+        this._element = "" ;
         
         
     }
@@ -41,10 +41,11 @@ class Card {
 
     getElement() {
         this._element = this._getElementFromTemplate();
-
-        this._element.querySelector('.cards__image').alt = this._name;
+        this._cardimage = this._element.querySelector('.cards__image');
+        this._cardimage.alt = this._name;
+        this._cardimage.src = this._link;
         this._element.querySelector('.cards__title').textContent = this._name;
-        this._element.querySelector('.cards__image').src = this._link;
+        
 
         this._addEventListeners();
          

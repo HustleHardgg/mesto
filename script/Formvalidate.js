@@ -1,6 +1,6 @@
 
 
-class FormValidator {
+class Formvalidate {
   constructor(formElement, data){
     this._data = data;
     //console.log(data);
@@ -34,8 +34,10 @@ _checkInputValidity(inputElement) {
   }
 };
 
+//Проверка поля ввода на валидность
 
 _hasInvalidInput = () => this._inputList.some((inputElement) => !inputElement.validity.valid);
+
 
 _toggleButtonState = () => {
   if (this._hasInvalidInput()) {
@@ -47,7 +49,7 @@ _toggleButtonState = () => {
     this._buttonElement.disabled = false;
   }
 }
-
+//Установка слушателей событий 
 _setEventListeners = () => {
   this._toggleButtonState();
   this._inputList.forEach((inputElement) => { 
@@ -66,9 +68,9 @@ enableValidation = () =>  this._setEventListeners();
     this._hideInputError(inputElement)
   })
  }
-}
+};
 
-export default FormValidator;
+export default Formvalidate;
 
 
 

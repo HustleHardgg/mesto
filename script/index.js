@@ -1,4 +1,5 @@
 import Card from "./card.js";
+import Formvalidate from "./Formvalidate.js";
 import FormValidator from "./Formvalidate.js";
 
 const cardTemplate = document.querySelector('.cards');
@@ -144,18 +145,18 @@ function closePopup(popup) {
   popup.removeEventListener('click', closePopupOverlay);
 }
 
-popupAdd.addEventListener('click', (event) => {
-  if (event.target === event.currentTarget) {
-    closePopup(popupAdd);
-  }
-});
+//popupAdd.addEventListener('click', (event) => {
+//  if (event.target === event.currentTarget) {
+//    closePopup(popupAdd);
+//  }
+//});
 
 
-popupImage.addEventListener('click', (event) => {
-  if (event.target === event.currentTarget) {
-    closePopup(popupImage);
-  }
-});
+//popupImage.addEventListener('click', (event) => {
+//  if (event.target === event.currentTarget) {
+//    closePopup(popupImage);
+//  }
+//});
 
 const closePopupOverlay = function (e) {
   if (e.target === e.currentTarget) {
@@ -170,11 +171,11 @@ function closeByEsc(evt) {
   }
 }
 
-const ValidatorAddCard = new FormValidator(popupAddform, data);
-ValidatorAddCard.enableValidation();
+const validatorAddCard = new Formvalidate(popupAddform, data);
+validatorAddCard.enableValidation();
 
-const ValidatorProfile = new FormValidator(popupProfile, data);
-ValidatorProfile.enableValidation();
+const validatorProfile = new Formvalidate(popupProfile, data);
+validatorProfile.enableValidation();
 
 
 // функция добавления новых карточек
@@ -188,4 +189,5 @@ function handlePopupAddCard(evt) {
 
   cardList.prepend(new Card(config.selectorTemplate, newObject, photoOpen).getElement());
   closePopup(popupAdd);
+  popupAddform.reset();
 }
