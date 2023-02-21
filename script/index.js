@@ -89,11 +89,17 @@ const config = {
 
 const cardList = document.querySelector(config.selectorCards);
 
+const createCard = (initialCards) => {
+  const newCard = new Card(config.selectorTemplate, initialCards, photoOpen)
+  return newCard.getElement()
+}  
+
 for (const item of initialCards) {
-  const card = new Card(config.selectorTemplate, item, photoOpen);
-  const element = card.getElement();
-  cardList.append(element);
+  
+  cardList.append(createCard(item));
 }
+
+
 
 //Открытие картинки
 function photoOpen(name, link) {
@@ -186,8 +192,8 @@ function handlePopupAddCard(evt) {
     name: nameAddinput.value,
     link: linkAddinput.value,
   };
-
-  cardList.prepend(new Card(config.selectorTemplate, newObject, photoOpen).getElement());
+ 
+  cardList.prepend(createCard(newObject));
   closePopup(popupAdd);
   popupAddform.reset();
 }

@@ -7,7 +7,7 @@ class Card {
         this._deleteCard = this._deleteCard.bind(this);
         this._likeCard = this._likeCard.bind(this);
         //this._element.querySelector('.cards__image') = this._cardimage;
-        console.log(this._cardimage);
+        
         this._photoOpen = photoOpen;
         
     }
