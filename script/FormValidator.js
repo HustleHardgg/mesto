@@ -1,6 +1,6 @@
 
 
-class Formvalidate {
+class FormValidator {
   constructor(formElement, data){
     this._data = data;
     //console.log(data);
@@ -70,7 +70,7 @@ enableValidation = () =>  this._setEventListeners();
  }
 };
 
-export default Formvalidate;
+export default FormValidator;
 
 
 

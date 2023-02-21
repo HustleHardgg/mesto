@@ -1,6 +1,6 @@
 import Card from "./card.js";
-import Formvalidate from "./Formvalidate.js";
-import FormValidator from "./Formvalidate.js";
+
+import FormValidator from "./FormValidator.js";
 
 const cardTemplate = document.querySelector('.cards');
 const cardsContainer = document.querySelector('.cards__item').content.querySelector('.cards__content');
@@ -171,10 +171,10 @@ function closeByEsc(evt) {
   }
 }
 
-const validatorAddCard = new Formvalidate(popupAddform, data);
+const validatorAddCard = new FormValidator(popupAddform, data);
 validatorAddCard.enableValidation();
 
-const validatorProfile = new Formvalidate(popupProfile, data);
+const validatorProfile = new FormValidator(popupProfile, data);
 validatorProfile.enableValidation();
 
 
