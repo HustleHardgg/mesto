@@ -1,6 +1,6 @@
 
 class Card {
-    constructor(template, card, photoOpen) {
+    constructor(template, card, handleCardClick) {
         this._template = template;
         this._name = card.name;
         this._link = card.link;
@@ -8,7 +8,7 @@ class Card {
         this._likeCard = this._likeCard.bind(this);
         //this._element.querySelector('.cards__image') = this._cardimage;
         
-        this._photoOpen = photoOpen;
+        this._photoOpen = handleCardClick;
         
     }
     _getElementFromTemplate() {
@@ -17,7 +17,6 @@ class Card {
             .content
             .querySelector('.cards__content')
             .cloneNode(true);
-            
             return cardElement
     
     }
