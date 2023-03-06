@@ -8,14 +8,14 @@ import {
     popupProfile,
     popupAddform,
     buttonAdd
-} from "../components/elements.js";
+} from "../utils/utils.js";
 
 import FormValidator from "../components/FormValidator.js";
-import { data, initialCards,config } from "../components/constants.js";
+import { data, initialCards,config } from "../utils/constants.js";
 import Section from "../components/Section.js";
-import { PopupWithImage } from "../components/popup-with-image.js";
-import { PopupWithForm } from "../components/popup-with-form.js";
-import { UserInfo } from "../components/user-info.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { UserInfo } from "../components/UserInfo.js";
 
 const createCard = (initialCards) => {
   const newCard = new Card(config.selectorTemplate, initialCards, handleCardClick)
@@ -91,5 +91,5 @@ buttonEdit.addEventListener('click', function () {
 // Слушатель на иконку добавления карточки
 buttonAdd.addEventListener('click', function () {
   popupAddCard.open();
-  validatorAddCard.enableValidation();
+  validatorAddCard.resetValidation();
 });

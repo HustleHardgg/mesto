@@ -1,6 +1,6 @@
 .header {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     border-bottom: 1px solid #545454;
     max-width: 880px;
     padding-bottom: 40px;
@@ -13,6 +13,6 @@
     .header {
         margin-top: 28px;
         padding-top: 0;
-        padding-bottom: 31.6px;
+        padding-bottom: 32px;
     }
 }

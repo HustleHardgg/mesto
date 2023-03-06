@@ -4,8 +4,8 @@ class PopupWithImage extends Popup {
   // Принимает в конструктор селектор popup
   constructor(selectorPopupForm) {
     super(selectorPopupForm);
-    this._popupDescription = document.querySelector('.popup-image__title');
-    this._popupImage = document.querySelector('.popup-image__open');
+    this._popupDescription = this._popupItem.querySelector('.popup-image__title');
+    this._popupImage = this._popupItem.querySelector('.popup-image__open');
     //console.log(selectorPopupForm)
   }
   
