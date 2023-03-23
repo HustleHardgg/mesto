@@ -8,9 +8,6 @@ class Card {
         this._cardName = this._card.name;
         this._cardImage = this._card.link;
         
-
-        //this._element.querySelector('.cards__image') = this._cardimage;
-
         this._userId = userId;
         this._cardId = authorData.cardId;
         this._authorId = authorData.authorId;
@@ -66,8 +63,6 @@ class Card {
             this._putLike(this._cardId);
         }
     }
-
-
 
     getElement() {
         this._cardElement = this._getElementFromTemplate();

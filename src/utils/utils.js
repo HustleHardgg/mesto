@@ -13,8 +13,6 @@ const buttonAdd = document.querySelector('.profile__add-button');
 // Получаем иконку редактирования аватара
 const iconAvatarEdit = document.querySelector('.profile__avatar-edit');
 
-
-
 // Получаем popup редактирования аватара
 const popupAvatarEdit = document.querySelector('#avatar-popup');
 //console.log(popupAvatarEdit)

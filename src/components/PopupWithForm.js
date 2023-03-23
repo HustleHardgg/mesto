@@ -10,7 +10,6 @@ class PopupWithForm extends Popup {
     this._inputList = Array.from(this._popupFormItem.querySelectorAll('input'));
     this._sendButton = this._popupItem.querySelector('button');
     this._sendButtonText = this._sendButton.textContent;
-
   }
 
   // Метод собирает данные всех полей формы
@@ -31,7 +30,6 @@ class PopupWithForm extends Popup {
   returnSavingProcessText() {
     this._sendButton.textContent = this._sendButtonText;
   }
-
 
   // Связываем с методом getInputValues, добавляем обработчик клика и обработчик сабмита формы
   setEventListeners() {

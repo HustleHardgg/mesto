@@ -42,7 +42,7 @@ class Api {
     getUserData() {
       return fetch(`${this._link}users/me`, {
         headers: this._headers
-        // По умолчанию fetch — это GET, можно не указывать
+        
       })
         .then(res => { return this._processingServerResponse(res); })
     }

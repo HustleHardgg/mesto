@@ -4,7 +4,7 @@ class PopupNotice extends Popup {
   // Получает селектор, объект и карточку.
   constructor(popupSelector, { callbackNotice }) {
     super(popupSelector);
-    //console.log(popupSelector);
+    
     // this._popupItem находится в родительском классе
     this._submitButton = this._popupItem.querySelector('form');
     
