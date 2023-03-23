@@ -5,12 +5,14 @@ class PopupWithForm extends Popup {
   constructor(popupSelector, { callbackFormSubmit }) {
     super(popupSelector);
     this._callbackFormSubmit = callbackFormSubmit;
-    
+
     this._popupFormItem = this._popupItem.querySelector('form');
     this._inputList = Array.from(this._popupFormItem.querySelectorAll('input'));
-    
+    this._sendButton = this._popupItem.querySelector('button');
+    this._sendButtonText = this._sendButton.textContent;
+
   }
-  
+
   // Метод собирает данные всех полей формы
   _getInputValues() {
     // Наполняем пустой массив данными через forEach
@@ -20,6 +22,17 @@ class PopupWithForm extends Popup {
     });
     return formValues;
   }
+
+  // Метод добавления кнопке текста в момент сохранения
+  putSavingProcessText() {
+    this._sendButton.textContent = 'Сохранение...';
+  }
+  // Метод добавления стандартного текста кнопке
+  returnSavingProcessText() {
+    this._sendButton.textContent = this._sendButtonText;
+  }
+
+
   // Связываем с методом getInputValues, добавляем обработчик клика и обработчик сабмита формы
   setEventListeners() {
     // Перезаписывает родительский метод setEventListeners

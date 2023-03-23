@@ -5,8 +5,10 @@ class FormValidator {
     this._data = data;
     //console.log(data);
     this._form = formElement;
+    //console.log(this._form)
     this._inactiveButtonClass = data.inactiveButtonClass;
-    this._buttonElement = formElement.querySelector(data.buttonElement);
+    this._buttonElement = formElement.querySelector("button");
+    console.log(this._buttonElement)
     this._inputList = Array.from(formElement.querySelectorAll(data.inputElement));
 }
   

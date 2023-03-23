@@ -11,16 +11,37 @@
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
 @import url(../blocks/profile/__edit-button/profile__edit-button.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
+@import url(../blocks/profile/__avatar/profile__avatar-area.css);
+@import url(../blocks/profile/__avatar/profile__avatar-edit.css);
+
 @import url(../blocks/cards/cards.css);
 @import url(../blocks/cards/__item/cards__item.css);
 @import url(../blocks/cards/__title/cards__title.css);
 @import url(../blocks/cards/__text/cards__text.css);
 @import url(../blocks/cards/__image/cards__image.css);
 @import url(../blocks/cards/__like-button/cards__like-button.css);
+@import url(../blocks/cards/__like-area/cards__like-area.css);
+@import url(../blocks/cards/__like-counter/cards__like-counter.css);
+
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/popup-addImage.css);
+
+/* popup-confirm */
+@import url(../blocks/popup-confirm/__container/popup-confirm__container.css);
+@import url(../blocks/popup-confirm/popup-confirm.css);
+@import url(../blocks/popup-confirm/__header/popup-confirm__header.css);
+@import url(../blocks/popup-confirm/__save/popup-addimage__save-button.css);
+
+
+/* popup-update */
+@import url(../blocks/popup-update/popup-update.css);
+@import url(../blocks/popup-update/__container/popup-update__container.css);
+@import url(../blocks/popup-update/__header/popup-update__header.css);
+@import url(../blocks/popup-update/__save/popup-update__save-button.css);
+@import url(../blocks/popup-update/__input/popup-update__input_place-link.css);
+
 
 @import url(../blocks/popup/__header/popup__header.css);
 @import url(../blocks/popup/__container/popup__container.css);
@@ -72,3 +93,4 @@
 @import url(../blocks/popup-addimage/__place/popup-addimage__place-name-error.css);
 @import url(../blocks/popup/__name-error/_active/popup__about-error_active.css);
 @import url(../blocks/popup/__name-error/_active/popup__name-error_active.css);
+
