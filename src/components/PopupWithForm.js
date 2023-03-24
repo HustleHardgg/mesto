@@ -8,8 +8,9 @@ class PopupWithForm extends Popup {
 
     this._popupFormItem = this._popupItem.querySelector('form');
     this._inputList = Array.from(this._popupFormItem.querySelectorAll('input'));
-    this._sendButton = this._popupItem.querySelector('button');
+    this._sendButton = this._popupFormItem.querySelector('button');
     this._sendButtonText = this._sendButton.textContent;
+    //console.log(this._inputList)
   }
 
   // Метод собирает данные всех полей формы
@@ -18,6 +19,7 @@ class PopupWithForm extends Popup {
     const formValues = {};
     this._inputList.forEach(inputItem => {
       formValues[inputItem.name] = inputItem.value;
+      //console.log(inputItem.value)
     });
     return formValues;
   }

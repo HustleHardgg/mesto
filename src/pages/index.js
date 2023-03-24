@@ -17,7 +17,7 @@ import {
 } from "../utils/utils.js";
 
 import FormValidator from "../components/FormValidator.js";
-import { data, config } from "../utils/constants.js";
+import { data } from "../utils/constants.js";
 import {Section} from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
@@ -73,6 +73,7 @@ Promise.all([ apiConnect.getUserData(), apiConnect.getInitialCards() ]).then(([ 
     userId = userProfileData._id;
     userInfo.setUserInfo({ username: userProfileData.name, description: userProfileData.about });
     renderInitialCards.renderItems(cardObject.reverse());
+    //console.log(userProfileData.name)
     userInfo.setUserAvatar(userProfileData.avatar);
   })
   //.catch((err) => { console.log(`Возникла глобальная ошибка, ${err}`) })
@@ -110,9 +111,10 @@ const popupEditeProfile = new PopupWithForm('#profile-popup', {
   callbackFormSubmit: (userProfileData) => { popupEditeProfile.putSavingProcessText(); apiConnect.sendUserData(userProfileData)
       .then((res) => {
         userInfo.setUserInfo({ username: res.name, description: res.about });
+        
         popupEditeProfile.close();
       })
-      .catch((err) => { console.log(`При редактировании профиля возникла ошибка, ${err}`) })
+      //.catch((err) => { console.log(`При редактировании профиля возникла ошибка, ${err}`) })
       .finally(() => {
         popupEditeProfile.returnSavingProcessText();
       })
@@ -126,7 +128,7 @@ const popupAddCard = new PopupWithForm('#cards-popup', {
         renderInitialCards.addItem(renderCard(card));
         popupAddCard.close();
       })
-      //.catch((err) => { console.log(`При добавлении новой карточки возникла ошибка, ${err}`) })
+      .catch((err) => { console.log(`При добавлении новой карточки возникла ошибка, ${err}`) })
       .finally(() => {
         popupAddCard.returnSavingProcessText();
       })
@@ -141,16 +143,26 @@ validatorAddCard.enableValidation();
 const validatorProfile = new FormValidator(popupProfile, data);
 validatorProfile.enableValidation();
 
-const profileAvatarEditValidate = new FormValidator(popupAvatarEdit, popupAvatarEditForm);
+const profileAvatarEditValidate = new FormValidator(popupAvatarEditForm, data);
 profileAvatarEditValidate.enableValidation();
 
 // Слушатель на иконку редактирования профиля
+
 buttonEdit.addEventListener('click', function () {
   popupEditeProfile.open();
+  validatorProfile.resetValidate();
   const actualUserInfo = userInfo.getUserInfo();
-  nameTitle.setAttribute('value', actualUserInfo.username);
-  about.setAttribute('value', actualUserInfo.description);
+  nameTitle.value = actualUserInfo.username;
+  about.value = actualUserInfo.description;
 });
+
+//buttonEdit.addEventListener('click', function () {
+//  popupEditeProfile.open();
+//  const actualUserInfo = userInfo.getUserInfo();
+//  nameTitle.value = actualUserInfo.username;
+//  about.value = actualUserInfo.description;
+//  
+//});
 
 // Слушатель на иконку добавления карточки
 buttonAdd.addEventListener('click', function () {

@@ -1,8 +1,8 @@
 const buttonEdit = document.querySelector('.profile__edit-button');
 
-const nameTitle = document.querySelector('.popup__input_name_title');
+const nameTitle = document.querySelector('#popup__name');
 
-const about = document.querySelector('.popup__input_name_subtitle');
+const about = document.querySelector('#popup__about');
 
 const popupProfile = document.querySelector('.popup__form');
 
@@ -21,6 +21,7 @@ const descriptionInput = popupProfile.querySelector('#description-input');
 
 // Получаем форму редактирования аватара
 const popupAvatarEditForm = popupAvatarEdit.querySelector('.popup-update__form');
+
 
 export {
     buttonEdit,

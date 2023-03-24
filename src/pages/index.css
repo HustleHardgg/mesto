@@ -41,6 +41,7 @@
 @import url(../blocks/popup-update/__header/popup-update__header.css);
 @import url(../blocks/popup-update/__save/popup-update__save-button.css);
 @import url(../blocks/popup-update/__input/popup-update__input_place-link.css);
+@import url(../blocks/popup-update/__place/popup-update__place-link-error.css);
 
 
 @import url(../blocks/popup/__header/popup__header.css);

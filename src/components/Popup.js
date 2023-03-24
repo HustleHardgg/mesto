@@ -1,10 +1,8 @@
 class Popup {
   // Принимает в конструктор селектор popup
-  constructor(selectorPopupForm) {
-    this._popupItem = document.querySelector(selectorPopupForm);
-    console.log(this._popupItem)
-
-    
+  constructor(popupSelector) {
+    this._popupItem = document.querySelector(popupSelector);
+    //console.log(this._popupItem) 
   }
   // Метод открытия popup
   open() {

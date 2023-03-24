@@ -2,7 +2,7 @@ class Api {
     constructor({ link, headers }) {
       this._link = link;
       this._headers = headers;
-      console.log(this._headers)
+      //console.log(this._headers)
     }
     // Метод обработки ответа сервера
     _processingServerResponse(res) {
@@ -52,6 +52,7 @@ class Api {
         headers: this._headers,
         method: 'PATCH',
         body: JSON.stringify({ name: profileData.username, about: profileData.description })
+        
       })
         .then(res => { return this._processingServerResponse(res); })
     }
