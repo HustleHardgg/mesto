@@ -83,7 +83,7 @@ const popupImageZoom = new PopupWithImage('#image-popup');
 popupImageZoom.setEventListeners();
 // Объявление popup редактирования аватара
 const popupEditeAvatar = new PopupWithForm('#avatar-popup', {
-  callbackFormSubmit: (userProfileData) => { popupEditeAvatar.putSavingProcessText(); apiConnect.sendAvatarData(userProfileData)
+  callbackFormSubmit: (userProfileData) => { popupEditeAvatar.putSavingProcessText();console.log(userProfileData), apiConnect.sendAvatarData(userProfileData)
       .then((res) => {
         userInfo.setUserAvatar(res.avatar);
         popupEditeAvatar.close();
@@ -109,10 +109,12 @@ popupNoticeDelete.setEventListeners();
 // Объявление popup редактирования профиля
 const popupEditeProfile = new PopupWithForm('#profile-popup', {
   callbackFormSubmit: (userProfileData) => { popupEditeProfile.putSavingProcessText(); apiConnect.sendUserData(userProfileData)
+    
       .then((res) => {
         userInfo.setUserInfo({ username: res.name, description: res.about });
         
         popupEditeProfile.close();
+        //console.log(userProfileData)
       })
       //.catch((err) => { console.log(`При редактировании профиля возникла ошибка, ${err}`) })
       .finally(() => {

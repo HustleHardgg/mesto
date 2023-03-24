@@ -51,7 +51,7 @@ class Api {
       return fetch(`${this._link}users/me`, {
         headers: this._headers,
         method: 'PATCH',
-        body: JSON.stringify({ name: profileData.username, about: profileData.description })
+        body: JSON.stringify({ name: profileData.textName, about: profileData.textAbout})
         
       })
         .then(res => { return this._processingServerResponse(res); })
@@ -61,7 +61,7 @@ class Api {
       return fetch(`${this._link}users/me/avatar`, {
         headers: this._headers,
         method: 'PATCH',
-        body: JSON.stringify({ avatar: avatarLink.avatar })
+        body: JSON.stringify({ avatar: avatarLink.placeimage })
       })
         .then(res => { return this._processingServerResponse(res); })
     }
