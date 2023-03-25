@@ -3,12 +3,12 @@
 class FormValidator {
   constructor(formElement, data){
     this._data = data;
-    //console.log(data);
+    
     this._form = formElement;
-    //console.log(this._form)
+    
     this._inactiveButtonClass = data.inactiveButtonClass;
     this._buttonElement = formElement.querySelector(data.buttonElement);
-    //console.log(this.formElement)
+    
     this._inputList = Array.from(formElement.querySelectorAll(data.inputElement));
 }
   
@@ -16,7 +16,6 @@ class FormValidator {
 _showInputError(inputElement) {
   const errorElement = this._form.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(this._data.inputErrorClass);
-  console.log(this._data.inputErrorClass)
   errorElement.classList.add(this._data.errorElement);
   errorElement.textContent = inputElement.validationMessage;
 }
